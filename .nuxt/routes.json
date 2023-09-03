@@ -1,0 +1,205 @@
+[
+  {
+    "name": "alternative",
+    "path": "/alternative",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\alternative.vue",
+    "chunkName": "pages/alternative",
+    "_name": "_c6729e8c"
+  },
+  {
+    "name": "calendar",
+    "path": "/calendar",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\calendar.vue",
+    "chunkName": "pages/calendar",
+    "_name": "_a504d3fe"
+  },
+  {
+    "name": "charts",
+    "path": "/charts",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\charts.vue",
+    "chunkName": "pages/charts",
+    "_name": "_a171ab50"
+  },
+  {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\dashboard.vue",
+    "chunkName": "pages/dashboard",
+    "_name": "_66256161"
+  },
+  {
+    "name": "departamento",
+    "path": "/departamento",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\departamento.vue",
+    "chunkName": "pages/departamento",
+    "_name": "_30146647"
+  },
+  {
+    "name": "lock",
+    "path": "/lock",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\lock.vue",
+    "chunkName": "pages/lock",
+    "_name": "_3888eeee"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_a7ad5394"
+  },
+  {
+    "name": "pricing",
+    "path": "/pricing",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\pricing.vue",
+    "chunkName": "pages/pricing",
+    "_name": "_d6bd925a"
+  },
+  {
+    "name": "register",
+    "path": "/register",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\register.vue",
+    "chunkName": "pages/register",
+    "_name": "_5cb88ee6"
+  },
+  {
+    "name": "soporte_admin",
+    "path": "/soporte_admin",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\soporte_admin.vue",
+    "chunkName": "pages/soporte_admin",
+    "_name": "_5664a476"
+  },
+  {
+    "name": "usuario",
+    "path": "/usuario",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\usuario.vue",
+    "chunkName": "pages/usuario",
+    "_name": "_68d5963b"
+  },
+  {
+    "name": "widgets",
+    "path": "/widgets",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\widgets.vue",
+    "chunkName": "pages/widgets",
+    "_name": "_01c8e93c"
+  },
+  {
+    "name": "components-buttons",
+    "path": "/components/buttons",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\components\\\\buttons.vue",
+    "chunkName": "pages/components/buttons",
+    "_name": "_cde82290"
+  },
+  {
+    "name": "components-cards",
+    "path": "/components/cards",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\components\\\\cards.vue",
+    "chunkName": "pages/components/cards",
+    "_name": "_0904115a"
+  },
+  {
+    "name": "components-grid-system",
+    "path": "/components/grid-system",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\components\\\\grid-system.vue",
+    "chunkName": "pages/components/grid-system",
+    "_name": "_10a7a866"
+  },
+  {
+    "name": "components-icons",
+    "path": "/components/icons",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\components\\\\icons.vue",
+    "chunkName": "pages/components/icons",
+    "_name": "_76826cde"
+  },
+  {
+    "name": "components-notifications",
+    "path": "/components/notifications",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\components\\\\notifications.vue",
+    "chunkName": "pages/components/notifications",
+    "_name": "_42abb542"
+  },
+  {
+    "name": "components-typography",
+    "path": "/components/typography",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\components\\\\typography.vue",
+    "chunkName": "pages/components/typography",
+    "_name": "_96ee6a70"
+  },
+  {
+    "name": "forms-components",
+    "path": "/forms/components",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\forms\\\\components.vue",
+    "chunkName": "pages/forms/components",
+    "_name": "_bd51c4dc"
+  },
+  {
+    "name": "forms-elements",
+    "path": "/forms/elements",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\forms\\\\elements.vue",
+    "chunkName": "pages/forms/elements",
+    "_name": "_6f02ebf3"
+  },
+  {
+    "name": "forms-validation",
+    "path": "/forms/validation",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\forms\\\\validation.vue",
+    "chunkName": "pages/forms/validation",
+    "_name": "_3df27975"
+  },
+  {
+    "name": "maps-google",
+    "path": "/maps/google",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\maps\\\\google.vue",
+    "chunkName": "pages/maps/google",
+    "_name": "_4dd6fd93"
+  },
+  {
+    "name": "maps-vector",
+    "path": "/maps/vector",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\maps\\\\vector.vue",
+    "chunkName": "pages/maps/vector",
+    "_name": "_ab1e28c6"
+  },
+  {
+    "name": "pages-timeline",
+    "path": "/pages/timeline",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\pages\\\\timeline.vue",
+    "chunkName": "pages/pages/timeline",
+    "_name": "_a74375dc"
+  },
+  {
+    "name": "pages-user",
+    "path": "/pages/user",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\pages\\\\user.vue",
+    "chunkName": "pages/pages/user",
+    "_name": "_232867c8"
+  },
+  {
+    "name": "tables-paginated",
+    "path": "/tables/paginated",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\tables\\\\paginated.vue",
+    "chunkName": "pages/tables/paginated",
+    "_name": "_5577e0d6"
+  },
+  {
+    "name": "tables-regular",
+    "path": "/tables/regular",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\tables\\\\regular.vue",
+    "chunkName": "pages/tables/regular",
+    "_name": "_156668e4"
+  },
+  {
+    "name": "tables-sortable",
+    "path": "/tables/sortable",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\tables\\\\sortable.vue",
+    "chunkName": "pages/tables/sortable",
+    "_name": "_11cd53e0"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_3afc99c2"
+  }
+]
