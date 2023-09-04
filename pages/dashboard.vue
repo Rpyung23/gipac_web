@@ -145,8 +145,8 @@ export default {
           {
             this.cont_clientes = response.data.datos[0].cont_clientes.toString()
             this.cont_service = response.data.datos[0].cont_service.toString()
-            this.cont_arrendados = response.data.datos[0].cont_arrendados.toString()
-            this.cont_libres = response.data.datos[0].cont_libres.toString()
+            this.cont_arrendados = response.data.datos[1].cont_arrendados.toString()
+            this.cont_libres = response.data.datos[1].cont_libres.toString()
           }
         })
         .catch((error) => {
