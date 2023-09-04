@@ -42,12 +42,6 @@ export default {
           description: '10:30 AM',
           done: false,
           checkType: 'info'
-        },
-        {
-          title: 'Winter Hackaton',
-          description: '10:30 AM',
-          done: true,
-          checkType: 'danger'
         }
       ]
     };

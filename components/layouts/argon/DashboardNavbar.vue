@@ -34,7 +34,7 @@
 
         <template>
 
-          <div class="dropdown-header noti-title">
+          <!--<div class="dropdown-header noti-title">
             <h6 class="text-overflow m-0">Welcome!</h6>
           </div>
           <a href="#!" class="dropdown-item">
@@ -53,10 +53,10 @@
             <i class="ni ni-support-16"></i>
             <span>Support</span>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#!" class="dropdown-item">
+          <div class="dropdown-divider"></div>-->
+          <a href="/login" class="dropdown-item">
             <i class="ni ni-user-run"></i>
-            <span>Logout</span>
+            <span>Cerrar Sessión</span>
           </a>
 
         </template>

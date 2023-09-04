@@ -341,6 +341,8 @@
     name: 'home-page',
     components: {
       [Tooltip.name]: Tooltip
-    }
+    },mounted() {
+      this.$cookies.remove("token_gipac")
+    },
   };
 </script>

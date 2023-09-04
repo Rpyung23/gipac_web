@@ -59,20 +59,6 @@
             progress: 72,
             progressType: 'red'
           },
-          {
-            id: 4,
-            img: 'img/theme/react.jpg',
-            title: 'React Material Dashboard',
-            progress: 90,
-            progressType: 'teal'
-          },
-          {
-            id: 5,
-            img: 'img/theme/vue.jpg',
-            title: 'Vue Paper UI Kit PRO',
-            progress: 100,
-            progressType: 'success'
-          }
         ]
       }
     }

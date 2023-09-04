@@ -4,18 +4,13 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _c6729e8c = () => interopDefault(import('..\\pages\\alternative.vue' /* webpackChunkName: "pages/alternative" */))
-const _a504d3fe = () => interopDefault(import('..\\pages\\calendar.vue' /* webpackChunkName: "pages/calendar" */))
-const _a171ab50 = () => interopDefault(import('..\\pages\\charts.vue' /* webpackChunkName: "pages/charts" */))
 const _66256161 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages/dashboard" */))
 const _30146647 = () => interopDefault(import('..\\pages\\departamento.vue' /* webpackChunkName: "pages/departamento" */))
 const _3888eeee = () => interopDefault(import('..\\pages\\lock.vue' /* webpackChunkName: "pages/lock" */))
 const _a7ad5394 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
-const _d6bd925a = () => interopDefault(import('..\\pages\\pricing.vue' /* webpackChunkName: "pages/pricing" */))
-const _5cb88ee6 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages/register" */))
+const _255e7ea8 = () => interopDefault(import('..\\pages\\pago_admin.vue' /* webpackChunkName: "pages/pago_admin" */))
 const _5664a476 = () => interopDefault(import('..\\pages\\soporte_admin.vue' /* webpackChunkName: "pages/soporte_admin" */))
 const _68d5963b = () => interopDefault(import('..\\pages\\usuario.vue' /* webpackChunkName: "pages/usuario" */))
-const _01c8e93c = () => interopDefault(import('..\\pages\\widgets.vue' /* webpackChunkName: "pages/widgets" */))
 const _cde82290 = () => interopDefault(import('..\\pages\\components\\buttons.vue' /* webpackChunkName: "pages/components/buttons" */))
 const _0904115a = () => interopDefault(import('..\\pages\\components\\cards.vue' /* webpackChunkName: "pages/components/cards" */))
 const _10a7a866 = () => interopDefault(import('..\\pages\\components\\grid-system.vue' /* webpackChunkName: "pages/components/grid-system" */))
@@ -46,18 +41,6 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/alternative",
-    component: _c6729e8c,
-    name: "alternative"
-  }, {
-    path: "/calendar",
-    component: _a504d3fe,
-    name: "calendar"
-  }, {
-    path: "/charts",
-    component: _a171ab50,
-    name: "charts"
-  }, {
     path: "/dashboard",
     component: _66256161,
     name: "dashboard"
@@ -74,13 +57,9 @@ export const routerOptions = {
     component: _a7ad5394,
     name: "login"
   }, {
-    path: "/pricing",
-    component: _d6bd925a,
-    name: "pricing"
-  }, {
-    path: "/register",
-    component: _5cb88ee6,
-    name: "register"
+    path: "/pago_admin",
+    component: _255e7ea8,
+    name: "pago_admin"
   }, {
     path: "/soporte_admin",
     component: _5664a476,
@@ -89,10 +68,6 @@ export const routerOptions = {
     path: "/usuario",
     component: _68d5963b,
     name: "usuario"
-  }, {
-    path: "/widgets",
-    component: _01c8e93c,
-    name: "widgets"
   }, {
     path: "/components/buttons",
     component: _cde82290,

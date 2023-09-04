@@ -56,13 +56,6 @@ export default {
           name: 'Samantha Ivy',
           status: 'Offline',
           statusType: 'danger'
-        },
-        {
-          id: 4,
-          img: 'img/theme/team-4.jpg',
-          name: 'John Michael',
-          status: 'Online',
-          statusType: 'success'
         }
       ]
     };

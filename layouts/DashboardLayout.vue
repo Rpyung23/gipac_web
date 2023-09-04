@@ -49,7 +49,7 @@
         <sidebar-item
           :link="{
             name: 'Soporte',
-            icon: 'ni ni-support-16 text-danger',
+            icon: 'ni ni-support-16 text-primary',
             path: '/soporte_admin'
           }">
         </sidebar-item> 
@@ -58,8 +58,8 @@
         <sidebar-item
           :link="{
             name: 'Pagos',
-            icon: 'ni ni-shop text-danger',
-            path: '/departamento'
+            icon: 'ni ni-money-coins text-default',
+            path: '/pago_admin'
           }">
         </sidebar-item> 
 

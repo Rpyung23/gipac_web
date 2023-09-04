@@ -615,9 +615,7 @@ export default {
 };
 </script>
 <style>
-body {
-  overflow-y: hidden;
-}
+
 
 .card-bodyRPagosVehiculoProduccion {
   padding: 0rem !important;

@@ -99,6 +99,7 @@
 <script>
 import Swal from 'sweetalert2'
 
+
 export default {
   layout: "AuthLayout",
   data() {
@@ -148,6 +149,8 @@ export default {
       }
     }
   },
-  mounted() {},
+  mounted() {
+    this.$cookies.remove("token_gipac")
+  },
 };
 </script>

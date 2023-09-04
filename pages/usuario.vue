@@ -3,7 +3,9 @@
     <base-header class="pb-6">
       <div class="row align-items-center py-4">
         <div class="col-lg-6 col-7">
-         
+          <base-button size="sm" @click="readAllUsuarios()" type="primary"
+            >Buscar</base-button
+          >
         </div>
         <div class="col-lg-6 col-5 text-right">
           <base-button size="sm" @click="showModalNuevoUsuario()" type="neutral"
@@ -15,13 +17,19 @@
 
     <div class="container-fluid mt--6">
       <div class="row">
-        <div class="col card">
-          <el-table
-            class="table-responsive table-flush"
+        <card
+          style="margin-bottom: 0rem; padding: 0.25rem"
+          body-classes="card-bodyRPagosVehiculoProduccion px-0 pb-1"
+          footer-classes="pb-2"
+        >
+        <el-table
             header-row-class-name="thead-light"
             :data="mListUsuario"
+            class="table-responsive table-flush"
+            height="calc(100vh - 12.5rem)"
+            style="width: 100%"
           >
-            <el-table-column label="" width="120">
+            <el-table-column label="" width="140">
               <template slot-scope="scope">
                 <base-button
                   size="sm"
@@ -42,26 +50,35 @@
             <el-table-column
               label="NOMBRES COMPLETOS"
               prop="nombre_usuario"
-              min-width="180"
+              min-width="270"
             >
             </el-table-column>
 
-            <el-table-column label="EMAIL" prop="email_usuario" min-width="180">
+            <el-table-column label="EMAIL" prop="email_usuario" min-width="230">
             </el-table-column>
 
             <el-table-column
               label="DNI/CEDULA"
               prop="dni_usuario"
-              min-width="180"
+              min-width="200"
             >
             </el-table-column>
 
-            <el-table-column label="ROL" prop="detalle" min-width="180">
+            <el-table-column
+              label="TELEFONO"
+              prop="telefono_usuario"
+              min-width="200"
+            >
+            </el-table-column>
+
+
+            <el-table-column label="ROL" prop="detalle" min-width="220">
             </el-table-column>
           </el-table>
-        </div>
+        </card>
       </div>
     </div>
+
 
     <!--Notice modal-->
     <modal :show.sync="ModalUsuarioAdd">
@@ -351,7 +368,7 @@ export default {
       this.ModalUsuarioAdd = true;
     },
     async readAllUsuarios() {
-      this.mListUsuario = [];
+      //this.mListUsuario = [];
 
       try {
         var data = JSON.stringify({
@@ -652,3 +669,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.card-bodyRPagosVehiculoProduccion {
+  padding: 0rem !important;
+  height: calc(100vh - 11.5rem);
+  overflow: none;
+}
+</style>
