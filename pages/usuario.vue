@@ -368,7 +368,7 @@ export default {
       this.ModalUsuarioAdd = true;
     },
     async readAllUsuarios() {
-      //this.mListUsuario = [];
+      this.mListUsuario = [];
 
       try {
         var data = JSON.stringify({

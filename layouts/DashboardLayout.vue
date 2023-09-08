@@ -29,6 +29,15 @@
         </sidebar-item> 
 
 
+        <sidebar-item
+          :link="{
+            name: 'Arrendamiento',
+            icon: 'ni ni-paper-diploma text-default',
+            path: '/arrendamiento'
+          }">
+        </sidebar-item> 
+
+
         <!--<sidebar-item
           :link="{
             name: 'Arrendamiento',

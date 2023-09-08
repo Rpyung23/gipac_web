@@ -47,7 +47,7 @@
             height="calc(100vh - 12.5rem)"
             style="width: 100%"
           >
-            <el-table-column label="" width="120">
+            <el-table-column label="" width="140">
               <template slot-scope="scope">
                 <base-button
                   v-if="scope.row.estado == 1"

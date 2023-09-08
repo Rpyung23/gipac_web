@@ -112,6 +112,7 @@ module.exports = {
     },
     env: {
         baseUrl: process.env.baseUrl || 'http://localhost:3002',
+        //baseUrl: 'https://gipacapi-cb27e5efa30d.herokuapp.com',
         mapaCredencial: process.env.mapaCredencial || 'AIzaSyCMR83z2AyaiNJTfUHKechVpGh_MjLQvHA'
     }
 }
