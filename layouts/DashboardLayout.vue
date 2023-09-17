@@ -72,6 +72,33 @@
           }">
         </sidebar-item> 
 
+
+
+
+
+        <!--- USUARIO  NORMAL --->
+
+        <sidebar-item
+          :link="{
+            name: 'Soporte U ',
+            icon: 'ni ni-support-16 text-primary',
+            path: '/soporte_usuario'
+          }">
+        </sidebar-item> 
+
+        
+        <sidebar-item
+          :link="{
+            name: 'Pagos U',
+            icon: 'ni ni-money-coins text-default',
+            path: '/pago_usuario'
+          }">
+        </sidebar-item> 
+
+
+        
+
+
         <!--
 
         <sidebar-item :link="{

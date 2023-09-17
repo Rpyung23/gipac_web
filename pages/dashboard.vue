@@ -5,7 +5,7 @@
       <div class="row" style="padding-top: 1rem">
         <div class="col-xl-3 col-md-6">
           <stats-card
-            title="Total Clientes"
+            title="Total Residentes"
             type="gradient-red"
             :sub-title="cont_clientes"
             icon="ni ni-circle-08"

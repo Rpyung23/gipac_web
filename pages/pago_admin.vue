@@ -352,6 +352,9 @@ export default {
       this.bancoUsuario = item.BancoEmisor;
       this.detalleDeposito = item.detalle_comprobante;
       this.ModalDetallePagoAdmin = true;
+      if(item.foto_url_deposito != null){
+        this.oFotoRecibo = item.foto_url_deposito
+      }
     },
     async updateEstadoRecibo(estado_) 
     {

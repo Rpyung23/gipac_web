@@ -29,7 +29,7 @@
             <div class="card-header bg-transparent">
               <div class="text-muted text-center">
                 <small
-                  ><img src="/img/brand/vigitrackv2.png" class="logo-login"
+                  ><img src="/img/brand/logo_login.png" class="logo-login"
                 /></small>
               </div>
             </div>

@@ -188,6 +188,27 @@
             </div>
           </div>
 
+          <div class="row" style="margin-bottom: 1rem;">
+            <div class="col-md-12">
+
+              <el-select
+                style="width: 100%"
+                rules="required"
+                v-model="mSelectSector"
+                placeholder="Sector / Zona"
+              >
+                <el-option
+                  v-for="item in mListSector"
+                  :key="item.code_sector"
+                  :label="item.detalle"
+                  :value="item.code_sector"
+                >
+                </el-option>
+              </el-select>
+
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-md-12">
               <textarea
@@ -327,6 +348,7 @@ export default {
       mListUsuario: [],
       mListTipoDepartamento: [],
       mListDepartamento: [],
+      mListSector: [],
       token: this.$cookies.get("token_gipac"),
       mSelectTipoDepartamentoBusqueda: null,
       ModalDepartamentoAdd: false,
@@ -337,16 +359,18 @@ export default {
       numPisoDepartamento: null,
       detalleDepartamento: null,
       precioDepartamento: null,
+
+      mSelectSector:null
     };
   },
   methods: {
     showModalUpdateDepartamento(item) {
-      this.ModalDepartamentoUpdate = true
-      this.codeDepartamento = item.code_departamento
-      this.mSelecTipoDepartamento = item.id_tipo_departamento
-      this.numPisoDepartamento = item.num_piso
-      this.detalleDepartamento = item.detalle_departamento
-      this.precioDepartamento = item.precio_arriendo
+      this.ModalDepartamentoUpdate = true;
+      this.codeDepartamento = item.code_departamento;
+      this.mSelecTipoDepartamento = item.id_tipo_departamento;
+      this.numPisoDepartamento = item.num_piso;
+      this.detalleDepartamento = item.detalle_departamento;
+      this.precioDepartamento = item.precio_arriendo;
     },
     clearModalNuevoDepartamento() {
       this.codeDepartamento = null;
@@ -460,14 +484,26 @@ export default {
         }
       }
     },
-    insertNuevoDepartamento() {
+    insertNuevoDepartamento() 
+    {
+      if(this.mSelectSector ==null)
+      {
+        this.$notify({
+          message: "SELECCIONE UN SECTOR",
+          timeout: 5000,
+          icon: "ni ni-bell-55",
+          type: "warning",
+        })
+        return
+      }
+
       if (this.mSelecTipoDepartamento == null) {
         this.$notify({
           message: "SELECCIONE UN TIPO DE DEPARTAMENTO",
           timeout: 5000,
           icon: "ni ni-bell-55",
           type: "warning",
-        });
+        })
       }
 
       let data = JSON.stringify({
@@ -606,17 +642,33 @@ export default {
           });
         });
     },
+    readSector() {
+      let config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: process.env.baseUrl+"/readSector",
+        headers: {},
+      };
+
+      this.$axios
+        .request(config)
+        .then((response) => {
+          this.mListSector.push(...response.data.datos);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   mounted() {
-    this.readAllTipoDepartamento();
-    this.readAllUsuarios();
-    this.readAllDepartamentos();
+    this.readSector()
+    this.readAllTipoDepartamento()
+    this.readAllUsuarios()
+    this.readAllDepartamentos()
   },
 };
 </script>
 <style>
-
-
 .card-bodyRPagosVehiculoProduccion {
   padding: 0rem !important;
   height: calc(100vh - 11.5rem);

@@ -29,6 +29,14 @@ module.exports = {
             src: "https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"
         }, {
             src: "https://raw.githubusercontent.com/wilq32/jqueryrotate/master/jQueryRotate.js"
+        },{
+            src:"https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"
+        },{
+            src:"https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"
+        },{
+            src:"https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"
+        },{
+            src:"https://www.gstatic.com/firebasejs/9.0.2/firebase-storage-compat.js"
         }],
         link: [
             { rel: 'icon', type: 'image/png', href: 'favicon.png' },
