@@ -76,6 +76,14 @@
             </el-table-column>
 
             <el-table-column
+              label="ZONA / SECTOR"
+              prop="detalle_sector"
+              min-width="170"
+            >
+            </el-table-column>
+
+
+            <el-table-column
               label="DETALLE DEPA.."
               prop="detalle_departamento"
               min-width="230"
@@ -512,6 +520,7 @@ export default {
         num_piso: this.numPisoDepartamento,
         detalle_departamento: this.detalleDepartamento,
         id_tipo_departamento: this.mSelecTipoDepartamento,
+        sector: this.mSelectSector
       });
 
       let config = {

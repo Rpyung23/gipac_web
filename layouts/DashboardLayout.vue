@@ -37,23 +37,13 @@
           }">
         </sidebar-item> 
 
-
-        <!--<sidebar-item
-          :link="{
-            name: 'Arrendamiento',
-            icon: 'ni ni-paper-diploma text-default',
-            path: '/arrendamiento'
-          }">
-        </sidebar-item> 
-
-
         <sidebar-item
           :link="{
-            name: 'Servicio',
+            name: 'Servicios',
             icon: 'ni ni-user-run text-warning',
             path: '/servicio_admin'
           }">
-        </sidebar-item> -->
+        </sidebar-item>
 
         <sidebar-item
           :link="{
@@ -72,11 +62,44 @@
           }">
         </sidebar-item> 
 
+        <sidebar-item
+          :link="{
+            name: 'Rubros',
+            icon: 'ni ni-tag text-warning',
+            path: '/pago_rubro'
+          }">
+        </sidebar-item> 
+
+
+        <sidebar-item translate="no" :link="{
+          name: 'Reportes',
+          icon: 'ni ni-ungroup text-orange',
+        }">
+
+          <sidebar-item :link="{ name: 'R. Residentes y departamentos asignados', path: '/rdistancia' }" translate="no"/>
+          <sidebar-item :link="{ name: 'R. Estado Deposito', path: '/rvelocidades' }" translate="no"/>
+          <sidebar-item :link="{ name: 'R. Servicios', path: '/rvelocidadesDetallados' }" translate="no"/>
+          
+          
+          
+        </sidebar-item>
+
+
+
+
 
 
 
 
         <!--- USUARIO  NORMAL --->
+
+        <sidebar-item
+          :link="{
+            name: 'Bancos U',
+            icon: 'ni ni-credit-card text-danger',
+            path: '/bancos'
+          }">
+        </sidebar-item> 
 
         <sidebar-item
           :link="{
@@ -94,6 +117,17 @@
             path: '/pago_usuario'
           }">
         </sidebar-item> 
+
+        <sidebar-item
+          :link="{
+            name: 'Rubros U',
+            icon: 'ni ni-tag text-warning',
+            path: '/pago_rubro_usuario'
+          }">
+        </sidebar-item> 
+
+
+        
 
 
         

@@ -47,9 +47,20 @@
             height="calc(100vh - 12.5rem)"
             style="width: 100%"
           >
-
             <el-table-column prop="estado" min-width="190">
               <template slot-scope="scope">
+                <base-button
+                  size="sm"
+                  @click="showModalRecibo(scope.row)"
+                  v-if="scope.row.estado == 3 ? true : false"
+                  type="success"
+                  title="VER RECIBO"
+                >
+                  <span class="btn-inner--icon"
+                    ><i class="ni ni-single-copy-04"></i
+                  ></span>
+                </base-button>
+
                 <base-button
                   size="sm"
                   type="default"
@@ -113,7 +124,7 @@
             </el-table-column>
 
             <el-table-column
-              label="PRECIO ($)"
+              label="ALICUOTA ($)"
               prop="precio_arriendo"
               min-width="150"
             >
@@ -187,6 +198,23 @@
             >
           </template>
         </modal>
+
+        <modal
+          :show.sync="oModalRecibo"
+          body-classes="p-0"
+          modal-classes="modal-dialog-centered modal-sm"
+        >
+          <card
+            type="secondary"
+            header-classes="bg-transparent pb-5"
+            class="border-0 mb-0"
+          >
+            <iframe
+              :src="baseURlPDFPanelReciboPago"
+              style="width: 100%; height: 33rem"
+            ></iframe>
+          </card>
+        </modal>
       </div>
     </base-header>
   </div>
@@ -207,6 +235,11 @@ import {
 import RouteBreadCrumb from "@/components/argon-core/Breadcrumb/RouteBreadcrumb";
 import LightTable from "~/components/tables/RegularTables/LightTable";
 import { getFecha_dd_mm_yyyy } from "../util/fechas";
+
+import pdfMake from "pdfmake/build/pdfmake.js";
+import pdfFonts from "pdfmake/build/vfs_fonts.js";
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default {
   layout: "DashboardLayout",
@@ -259,9 +292,121 @@ export default {
       mListDepartamento: [],
       oValueSelectCuenta: null,
       mListBancos: [],
+
+      oModalRecibo: false,
+      baseURlPDFPanelReciboPago: null,
     };
   },
   methods: {
+    async showModalRecibo(item) {
+      console.log(item);
+      this.baseURlPDFPanelReciboPago = null;
+      this.oModalRecibo = true;
+
+      var empresa = [
+        {
+          text: "GIPAC",
+          fontSize: 12,
+          bold: true,
+          alignment: "center",
+        },
+      ];
+
+      var docDefinition = {
+        // a string or { width: 190, height: number }
+        pageSize: { width: 220, height: "auto" },
+        pageMargins: [15, 15, 15, 15],
+        compress: true,
+        // header: [empresa],
+
+        content: [
+          {
+            headerRows: 0,
+            fontSize: 12,
+            bold: true,
+            layout: "noBorders", // optional
+            table: {
+              widths: ["*"],
+              body: [empresa],
+            },
+          },
+
+          {
+            bold: true,
+            fontSize: 9,
+            alignment: "center",
+            layout: "noBorders", // optional
+            table: {
+              // headers are automatically repeated if the table spans over multiple pages
+              // you can declare how many rows should be treated as headers
+              headerRows: 0,
+              widths: ["*"],
+              body: [["COMPROBANTE DE PAGO"]],
+            },
+          },
+          {
+            fontSize: 6,
+            layout: "noBorders", // optional
+            table: {
+              // headers are automatically repeated if the table spans over multiple pages
+              // you can declare how many rows should be treated as headers
+
+              body: [["."]],
+            },
+          },
+          {
+            fontSize: 9,
+            alignment: "left",
+            layout: "noBorders", // optional
+            table: {
+              // headers are automatically repeated if the table spans over multiple pages
+              // you can declare how many rows should be treated as headers
+              headerRows: 0,
+              widths: ["auto", "*"],
+              body: [
+                [
+                  { text: "DEPARTAMENTO ", bold: true },
+                  { text: item.fk_code_departamento },
+                ],
+                [{ text: "DETALLE ", bold: true }, { text: item.motivo }],
+                [
+                  { text: "F. PAGO ", bold: true },
+                  { text: item.fecha_creacion },
+                ],
+                [
+                  { text: "ARRENDATARIO ", bold: true },
+                  { text: item.nombre_usuario },
+                ],
+              ],
+            },
+          },
+
+          { text: ".", margin: [10, 0, 0, 0], color: "#FFFFFF" },
+
+          {
+            fontSize: 9,
+            alignment: "center",
+            layout: "noBorders", // optional
+            table: {
+              // headers are automatically repeated if the table spans over multiple pages
+              // you can declare how many rows should be treated as headers
+              headerRows: 0,
+              widths: ["*"],
+              body: [[{ qr: item.id_pago_departamento.toString(), fit: 75 }]],
+            },
+          },
+
+          { text: ".", margin: [10, 0, 0, 0], color: "#FFFFFF" },
+        ],
+        
+      };
+
+      var pdfDocGenerator = pdfMake.createPdf(docDefinition);
+
+      pdfDocGenerator.getDataUrl((dataUrl) => {
+        this.baseURlPDFPanelReciboPago = dataUrl;
+      });
+    },
     initFechaActual() {
       var fecha = new Date();
       var mes = fecha.getMonth() + 1;
@@ -462,7 +607,7 @@ export default {
         );
 
         if (response.data.status_code == 200) {
-          this.readAllPAgoUsuarios()
+          this.readAllPAgoUsuarios();
           this.ModalDetallePagoAdmin = false;
         } else {
           Notification.error({ message: response.data.msm });

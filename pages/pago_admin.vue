@@ -141,18 +141,12 @@
             </el-table-column>
 
             <el-table-column
-              label="PRECIO ($)"
+              label="ALICUOTA ($)"
               prop="precio_arriendo"
               min-width="150"
             >
             </el-table-column>
 
-            <el-table-column
-              label="NUM RECIBO"
-              prop="code_referencia"
-              min-width="150"
-            >
-            </el-table-column>
           </el-table>
         </card>
 

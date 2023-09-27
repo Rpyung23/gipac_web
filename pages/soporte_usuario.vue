@@ -15,7 +15,7 @@
                 multiple
                 collapse-tags
                 placeholder="TIPO SOPORTE"
-                style="margin-right: 0.5rem;"
+                style="margin-right: 0.5rem"
               >
                 <el-option
                   v-for="item in mListTipoSoporte"
@@ -42,10 +42,14 @@
                 ><span class="btn-inner--icon"
                   ><i class="el-icon-search"></i></span
               ></base-button>
-              <base-button size="sm" @click="readAllSoporte()" type="success"
+              <base-button
+                size="sm"
+                @click="showModalNuevoTicket()"
+                type="success"
                 ><span class="btn-inner--icon"
                   ><i class="ni ni-fat-add"></i> Nuevo Ticket</span
-              ></base-button>
+                ></base-button
+              >
             </div>
           </div>
         </card>
@@ -306,6 +310,75 @@
         </div>
       </form>
     </modal>
+
+    <modal :show.sync="oModalNuevoTicket">
+      <h5 slot="header" class="modal-title" id="modal-title-default">
+        INGRESAR NUEVO TICKET
+      </h5>
+
+      <form>
+        <div class="row">
+          <div class="col-md-12">
+            <base-input
+              v-model="asuntoTicketNuevo"
+              placeholder="ASUNTO"
+            ></base-input>
+          </div>
+          <div class="col-md-12">
+            <el-select
+              v-model="mSelectTipoSoporteNuevo"
+              collapse-tags
+              placeholder="TIPO SOPORTE"
+              style="width: 100%; margin-bottom: 1rem"
+            >
+              <el-option
+                v-for="item in mListTipoSoporte"
+                :key="item.id_tipo_soporte"
+                :label="item.detalle_soporte"
+                :value="item.id_tipo_soporte"
+              >
+              </el-option>
+            </el-select>
+          </div>
+
+          <div class="col-md-12">
+            <textarea
+              class="form-control"
+              placeholder="DETALLE DEL TICKET"
+              v-model="detalleTicketNuevo"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <input
+            type="file"
+            id="fileInputImg"
+            class="hidden-file-input"
+            accept="image/*"
+            @change="changeFotoTicket()"
+            style="
+              margin-top: 1rem;
+              margin-right: 1rem;
+              margin-left: 1rem;
+              margin-bottom: 1rem;
+            "
+          />
+
+          <input
+            type="file"
+            id="fileInputArchivo"
+            class="hidden-file-input"
+            accept=".pdf"
+            style="margin-right: 1rem; margin-left: 1rem"
+            @change="changePDFTicket()"
+          />
+        </div>
+      </form>
+
+      <template slot="footer">
+        <base-button type="primary" @click="crearNuevoTicket()">Guardar Ticket</base-button>
+      </template>
+    </modal>
   </div>
 </template>
 <script>
@@ -317,6 +390,7 @@ import {
   TableColumn,
   Select,
   Option,
+  Notification,
 } from "element-ui";
 import RouteBreadCrumb from "@/components/argon-core/Breadcrumb/RouteBreadcrumb";
 import LightTable from "~/components/tables/RegularTables/LightTable";
@@ -333,6 +407,7 @@ export default {
     [Table.name]: Table,
     [Option.name]: Option,
     [TableColumn.name]: TableColumn,
+    [Notification.name]: Notification,
   },
   data() {
     return {
@@ -353,9 +428,35 @@ export default {
       fechaTicket: null,
       detalleTicket: null,
       solucionTicket: "",
+
+      oModalNuevoTicket: false,
+
+      firebaseConfig: {
+        apiKey: "AIzaSyDdA_Nzz1usmdrxOwb-BWn-Dgvxs6Ek5Bc",
+        authDomain: "gipac-d45bf.firebaseapp.com",
+        projectId: "gipac-d45bf",
+        storageBucket: "gipac-d45bf.appspot.com",
+        messagingSenderId: "554589708519",
+        appId: "1:554589708519:web:19aa64dba952b31b2d4242",
+      },
+      appFirebase: null,
+
+      oFotoTicketFirebase: null,
+      oArchivoTicketFirebase: null,
+      asuntoTicketNuevo: null,
+      mSelectTipoSoporteNuevo: null,
+      detalleTicketNuevo: null,
     };
   },
   methods: {
+    showModalNuevoTicket() {
+      this.oFotoTicketFirebase = null;
+      this.oArchivoTicketFirebase = null;
+      this.asuntoTicketNuevo = null;
+      this.mSelectTipoSoporteNuevo = null;
+      this.detalleTicketNuevo = null;
+      this.oModalNuevoTicket = true;
+    },
     showDetalleSoporte(item) {
       this.objTicketSoporte = item;
       this.modalDetalleSoporte = true;
@@ -432,75 +533,184 @@ export default {
           console.log(error);
         });
     },
-    updateSoporte() {
-      if (this.mSelectEstadoSoporteUpdate == null) {
-        this.$notify({
-          message: "PORFAVOR DEBE SELECCIONAR UN ESTADO DEL TICKET",
-          timeout: 3000,
-          icon: "ni ni-bell-55",
-          type: "warning",
-        });
+    changeFotoTicket() {
+      console.log("CHANGUE FOTO");
+      var fileInput = document.getElementById("fileInputImg");
+      // Los archivos seleccionados, pueden ser muchos o uno
+      const archivos = fileInput.files;
+      // Si no hay archivos salimos de la función y quitamos la imagen
+      if (!archivos || !archivos.length) {
+        //$imagenPrevisualizacionUpdate.src = "";
+        //console.log("SIN ARCHICOS SELECT")
         return;
       }
-      let data = JSON.stringify({
-        token: this.token,
-        id_soporte: this.objTicketSoporte.id_soporte,
-        solucion_ticket: this.solucionTicket,
-        estado: this.mSelectEstadoSoporteUpdate,
-      });
+      // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+      var oFileFoto = archivos[0];
+      // Lo convertimos a un objeto de tipo objectURL
+      var objectURL = URL.createObjectURL(oFileFoto);
+      console.log(objectURL);
 
-      let config = {
-        method: "put",
-        maxBodyLength: Infinity,
-        url: process.env.baseUrl + "/update_soporte",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: data,
-      };
+      this.uploadImage(oFileFoto);
+    },
+    uploadImage(oFileFoto) {
+      try {
+        this.oFotoTicketFirebase = null;
+        var self = this;
 
-      this.$axios
-        .request(config)
-        .then((response) => {
-          if (response.data.status_code == 200) {
-            this.modalDetalleSoporte = false;
-            this.readAllSoporte();
-            this.$notify({
-              message:
-                "TICKET N° " +
-                this.objTicketSoporte.id_soporte +
-                " ACTUALIZADO CON ÉXITO",
-              timeout: 5000,
-              icon: "ni ni-bell-55",
-              type: "default",
-            });
-          } else {
-            this.$notify({
-              message: response.data.msm,
-              timeout: 5000,
-              icon: "ni ni-bell-55",
-              type: "warning",
-            });
-          }
-        })
-        .catch((error) => {
-          this.$notify({
-            message: error.toString(),
-            timeout: 5000,
-            icon: "ni ni-bell-55",
-            type: "danger",
+        if (oFileFoto != null) {
+          // Crea una referencia al almacenamiento de Firebase con el nombre de archivo que deseas
+          var storageRef = firebase
+            .storage()
+            .ref("ticket_image/" + oFileFoto.name);
+
+          // Sube el archivo a Firebase Storage
+          var uploadTask = storageRef.put(oFileFoto);
+
+          // Monitorea el progreso de la carga (opcional)
+          uploadTask.on(
+            "state_changed",
+            function (snapshot) {
+              // Aquí puedes obtener información sobre el progreso de la carga si lo deseas
+              var progress =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              console.log("Progreso de carga: " + progress + "%");
+            },
+            function (error) {
+              // Manejo de errores si ocurre alguno durante la carga
+              console.error("Error al cargar la foto:", error);
+            },
+            function () {
+              // Si la carga se completa exitosamente, puedes obtener la URL de la imagen
+              uploadTask.snapshot.ref
+                .getDownloadURL()
+                .then(function (downloadURL) {
+                  self.oFotoTicketFirebase = downloadURL;
+                  console.log("URL de la foto subida:", downloadURL);
+                });
+            }
+          );
+        } else {
+          console.log("FILE ES NULL");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    changePDFTicket() {
+      console.log("CHANGUE PDF");
+      var fileInput = document.getElementById("fileInputArchivo");
+      // Los archivos seleccionados, pueden ser muchos o uno
+      const archivos = fileInput.files;
+      // Si no hay archivos salimos de la función y quitamos la imagen
+      if (!archivos || !archivos.length) {
+        //$imagenPrevisualizacionUpdate.src = "";
+        //console.log("SIN ARCHICOS SELECT")
+        return;
+      }
+      // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+      var oFileFoto = archivos[0];
+      // Lo convertimos a un objeto de tipo objectURL
+      var objectURL = URL.createObjectURL(oFileFoto);
+      console.log(objectURL);
+
+      this.uploadArchivo(oFileFoto);
+    },
+    uploadArchivo(oFileFoto) {
+      try {
+        this.oArchivoTicketFirebase = null;
+        var self = this;
+
+        if (oFileFoto != null) {
+          // Crea una referencia al almacenamiento de Firebase con el nombre de archivo que deseas
+          var storageRef = firebase
+            .storage()
+            .ref("ticket_archivo/" + oFileFoto.name);
+
+          // Sube el archivo a Firebase Storage
+          var uploadTask = storageRef.put(oFileFoto);
+
+          // Monitorea el progreso de la carga (opcional)
+          uploadTask.on(
+            "state_changed",
+            function (snapshot) {
+              // Aquí puedes obtener información sobre el progreso de la carga si lo deseas
+              var progress =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              console.log("Progreso de carga: " + progress + "%");
+            },
+            function (error) {
+              // Manejo de errores si ocurre alguno durante la carga
+              console.error("Error al cargar la PDF:", error);
+            },
+            function () {
+              // Si la carga se completa exitosamente, puedes obtener la URL de la imagen
+              uploadTask.snapshot.ref
+                .getDownloadURL()
+                .then(function (downloadURL) {
+                  self.oArchivoTicketFirebase = downloadURL;
+                  console.log("PDF de la foto subida:", downloadURL);
+                });
+            }
+          );
+        } else {
+          console.log("FILE ES NULL");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async crearNuevoTicket() {
+      try {
+        if (this.detalleTicketNuevo == null) {
+          Notification.error({ message: "PORFAVOR INGRESE EL DETALLE" });
+          return;
+        }
+
+        if (this.asuntoTicketNuevo == null) {
+          Notification.error({ message: "PORFAVOR INGRESE EL ASUNTO" });
+          return;
+        }
+
+        if (this.mSelectTipoSoporteNuevo == null) {
+          Notification.error({
+            message: "PORFAVOR SELECCIONE UN TIPO DE SOPORTE",
           });
-        });
+          return;
+        }
+
+        var response = await this.$axios.post(
+          process.env.baseUrl + "/create_soporte",
+          {
+            token:this.token,
+            tipo_soporte: this.mSelectTipoSoporteNuevo,
+            detalle_soporte: this.detalleTicketNuevo,
+            url_img: this.oFotoTicketFirebase,
+            url_archivo: this.oArchivoTicketFirebase,
+            asunto_soporte: this.asuntoTicketNuevo,
+          }
+        );
+
+        if (response.data.status_code == 200) 
+        {
+          this.oModalNuevoTicket = false;
+          Notification.success({ message: "TICKET CREADO CON EXITO" });
+          this.readAllSoporte()
+        } else {
+          Notification.error({ message: "NO SE HA PODIDO CREAR EL TICKET" });
+        }
+      } catch (error) {
+        Notification.error({ message: error.toString() });
+      }
     },
   },
   mounted() {
+    this.appFirebase = firebase.initializeApp(this.firebaseConfig);
     this.readAllTipoSoporte();
     this.readAllSoporte();
   },
 };
 </script>
 <style>
-
 .containerDiv {
   display: flex;
 }
@@ -517,7 +727,6 @@ export default {
   justify-content: flex-end;
   align-items: center;
 }
-
 
 body {
   overflow-y: hidden;
