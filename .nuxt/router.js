@@ -7,6 +7,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _58b04a58 = () => interopDefault(import('..\\pages\\arrendamiento.vue' /* webpackChunkName: "pages/arrendamiento" */))
 const _5cef78ca = () => interopDefault(import('..\\pages\\bancos.vue' /* webpackChunkName: "pages/bancos" */))
 const _66256161 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages/dashboard" */))
+const _712a92d0 = () => interopDefault(import('..\\pages\\dashboard_usuario.vue' /* webpackChunkName: "pages/dashboard_usuario" */))
 const _30146647 = () => interopDefault(import('..\\pages\\departamento.vue' /* webpackChunkName: "pages/departamento" */))
 const _3888eeee = () => interopDefault(import('..\\pages\\lock.vue' /* webpackChunkName: "pages/lock" */))
 const _a7ad5394 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
@@ -14,7 +15,12 @@ const _255e7ea8 = () => interopDefault(import('..\\pages\\pago_admin.vue' /* web
 const _755543d9 = () => interopDefault(import('..\\pages\\pago_rubro.vue' /* webpackChunkName: "pages/pago_rubro" */))
 const _69270570 = () => interopDefault(import('..\\pages\\pago_rubro_usuario.vue' /* webpackChunkName: "pages/pago_rubro_usuario" */))
 const _692d2bcb = () => interopDefault(import('..\\pages\\pago_usuario.vue' /* webpackChunkName: "pages/pago_usuario" */))
+const _3c75a83b = () => interopDefault(import('..\\pages\\reporte_rubro.vue' /* webpackChunkName: "pages/reporte_rubro" */))
+const _7cbbe467 = () => interopDefault(import('..\\pages\\reporte_servicio.vue' /* webpackChunkName: "pages/reporte_servicio" */))
+const _0172fe63 = () => interopDefault(import('..\\pages\\reporte1.vue' /* webpackChunkName: "pages/reporte1" */))
+const _018115e4 = () => interopDefault(import('..\\pages\\reporte2.vue' /* webpackChunkName: "pages/reporte2" */))
 const _03b34dae = () => interopDefault(import('..\\pages\\servicio_admin.vue' /* webpackChunkName: "pages/servicio_admin" */))
+const _ca02cdf0 = () => interopDefault(import('..\\pages\\servicio_usuario.vue' /* webpackChunkName: "pages/servicio_usuario" */))
 const _5664a476 = () => interopDefault(import('..\\pages\\soporte_admin.vue' /* webpackChunkName: "pages/soporte_admin" */))
 const _652336a4 = () => interopDefault(import('..\\pages\\soporte_usuario.vue' /* webpackChunkName: "pages/soporte_usuario" */))
 const _68d5963b = () => interopDefault(import('..\\pages\\usuario.vue' /* webpackChunkName: "pages/usuario" */))
@@ -44,6 +50,10 @@ export const routerOptions = {
     component: _66256161,
     name: "dashboard"
   }, {
+    path: "/dashboard_usuario",
+    component: _712a92d0,
+    name: "dashboard_usuario"
+  }, {
     path: "/departamento",
     component: _30146647,
     name: "departamento"
@@ -72,9 +82,29 @@ export const routerOptions = {
     component: _692d2bcb,
     name: "pago_usuario"
   }, {
+    path: "/reporte_rubro",
+    component: _3c75a83b,
+    name: "reporte_rubro"
+  }, {
+    path: "/reporte_servicio",
+    component: _7cbbe467,
+    name: "reporte_servicio"
+  }, {
+    path: "/reporte1",
+    component: _0172fe63,
+    name: "reporte1"
+  }, {
+    path: "/reporte2",
+    component: _018115e4,
+    name: "reporte2"
+  }, {
     path: "/servicio_admin",
     component: _03b34dae,
     name: "servicio_admin"
+  }, {
+    path: "/servicio_usuario",
+    component: _ca02cdf0,
+    name: "servicio_usuario"
   }, {
     path: "/soporte_admin",
     component: _5664a476,

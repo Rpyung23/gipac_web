@@ -6,15 +6,7 @@
   >
      <strong style="color: #FFFFFF;font-size: 1.5rem;width:100%;text-align:center">GIPAC PANEL</strong>
     <!-- Navbar links -->
-    <ul class="navbar-nav align-items-center ml-md-auto">
-      <base-dropdown class="nav-item"
-                     tag="li"
-                     title-classes="nav-link"
-                     title-tag="a"
-                     icon="ni ni-bell-55"
-                     >
-      </base-dropdown>
-    </ul>
+  
     <ul class="navbar-nav align-items-center ml-auto ml-md-0">
       <base-dropdown menu-on-right
                      class="nav-item"
@@ -27,7 +19,7 @@
                     <img alt="Image placeholder" src="img/theme/team-4.jpg">
                   </span>
             <div class="media-body ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">{{nameUsuario}}</span>
+              <span style="display: flex;" class="mb-0 text-sm  font-weight-bold">{{nameUsuario}}</span>
             </div>
           </div>
         </a>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-header class="pb-6">
+    <base-header class="pb-6" style="height: 100vh;">
       <!-- Card stats -->
       <div class="row" style="padding-top: 1rem">
         <div class="col-xl-3 col-md-6">
@@ -39,39 +39,13 @@
           >
           </stats-card>
         </div>
+
+        <div class="container_img">
+          <img  srcset="../static/img/brand/dashboard-removebg-preview.png">
+        </div>
       </div>
     </base-header>
 
-    <!--Charts-->
-    <div class="container-fluid mt--6">
-      <!--Lists-->
-      <div class="row">
-        <div class="col-xl-4">
-          <card>
-            <h5 class="h3 mb-0" slot="header">Team members</h5>
-
-            <user-list></user-list>
-          </card>
-        </div>
-
-        <div class="col-xl-4">
-          <card>
-            <h5 class="h3 mb-0" slot="header">To do list</h5>
-
-            <task-list></task-list>
-          </card>
-        </div>
-
-        <div class="col-xl-4">
-          <card>
-            <h5 class="h3 mb-0" slot="header">Progress track</h5>
-
-            <progress-track-list></progress-track-list>
-          </card>
-        </div>
-      </div>
-      <!--End lists-->
-    </div>
   </div>
 </template>
 <script>
@@ -143,8 +117,9 @@ export default {
         .then((response) => {
           if (response.data.status_code == 200) 
           {
+            //console.log(response.data)
             this.cont_clientes = response.data.datos[0].cont_clientes.toString()
-            this.cont_service = response.data.datos[0].cont_service.toString()
+            this.cont_service = response.data.datos[2].cont_service.toString()
             this.cont_arrendados = response.data.datos[1].cont_arrendados.toString()
             this.cont_libres = response.data.datos[1].cont_libres.toString()
           }
@@ -159,3 +134,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.container_img{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+</style>

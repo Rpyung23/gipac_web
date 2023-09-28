@@ -98,7 +98,7 @@
 </style>
 <script>
 import Swal from 'sweetalert2'
-
+import jwt_decode from "jwt-decode";
 
 export default {
   layout: "AuthLayout",
@@ -132,7 +132,15 @@ export default {
             if (result.isConfirmed) 
             {
               this.$cookies.set("token_gipac",data.data.token)
-              this.$router.push("/dashboard");
+
+              var token = this.$cookies.get("token_gipac")
+              var oRol = jwt_decode(token).RolUsua
+
+              if(oRol == 1 ){
+                this.$router.push("/dashboard");
+              }else{
+                this.$router.push("/dashboard_usuario");
+              }
             }
           });
         } else {

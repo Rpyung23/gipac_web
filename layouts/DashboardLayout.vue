@@ -8,11 +8,12 @@
           :link="{
             name: 'Dashboard',
             icon: 'ni ni-chart-bar-32 text-primary',
-            path: '/dashboard'
+            path: oRol == 1 || oRol == null ? '/dashboard' : '/dashboard_usuario' 
           }">
         </sidebar-item>
 
         <sidebar-item
+        v-if="oRol != 2 ? true : false"
           :link="{
             name: 'Usuarios',
             icon: 'ni ni-circle-08 text-green',
@@ -21,6 +22,7 @@
         </sidebar-item> 
 
         <sidebar-item
+        v-if="oRol != 2 ? true : false"
           :link="{
             name: 'Departamento',
             icon: 'ni ni-shop text-danger',
@@ -30,6 +32,7 @@
 
 
         <sidebar-item
+        v-if="oRol != 2 ? true : false"
           :link="{
             name: 'Arrendamiento',
             icon: 'ni ni-paper-diploma text-default',
@@ -38,6 +41,7 @@
         </sidebar-item> 
 
         <sidebar-item
+        v-if="oRol != 2 ? true : false"
           :link="{
             name: 'Servicios',
             icon: 'ni ni-user-run text-warning',
@@ -46,6 +50,7 @@
         </sidebar-item>
 
         <sidebar-item
+        v-if="oRol != 2 ? true : false"
           :link="{
             name: 'Soporte',
             icon: 'ni ni-support-16 text-primary',
@@ -55,6 +60,7 @@
 
 
         <sidebar-item
+        v-if="oRol != 2 ? true : false"
           :link="{
             name: 'Pagos',
             icon: 'ni ni-money-coins text-default',
@@ -63,6 +69,7 @@
         </sidebar-item> 
 
         <sidebar-item
+        v-if="oRol != 2 ? true : false"
           :link="{
             name: 'Rubros',
             icon: 'ni ni-tag text-warning',
@@ -71,14 +78,16 @@
         </sidebar-item> 
 
 
-        <sidebar-item translate="no" :link="{
+        <sidebar-item v-if="oRol != 2 ? true : false" translate="no" :link="{
           name: 'Reportes',
           icon: 'ni ni-ungroup text-orange',
         }">
 
-          <sidebar-item :link="{ name: 'R. Residentes y departamentos asignados', path: '/rdistancia' }" translate="no"/>
-          <sidebar-item :link="{ name: 'R. Estado Deposito', path: '/rvelocidades' }" translate="no"/>
-          <sidebar-item :link="{ name: 'R. Servicios', path: '/rvelocidadesDetallados' }" translate="no"/>
+          <sidebar-item :link="{ name: 'R. Residentes y departamentos asignados', path: '/reporte1' }" translate="no"/>
+          <sidebar-item :link="{ name: 'R. Estado Deposito', path: '/reporte2' }" translate="no"/>
+          <sidebar-item :link="{ name: 'R. Servicios', path: '/reporte_servicio' }" translate="no"/>
+          <sidebar-item :link="{ name: 'R. Rubros', path: '/reporte_rubro' }" translate="no"/>
+          
           
           
           
@@ -94,16 +103,27 @@
         <!--- USUARIO  NORMAL --->
 
         <sidebar-item
+          v-if="oRol == 2 ? true : false"
           :link="{
-            name: 'Bancos U',
+            name: 'Servicios',
+            icon: 'ni ni-user-run text-warning',
+            path: '/servicio_usuario'
+          }">
+        </sidebar-item>
+
+        <sidebar-item
+        v-if="oRol == 2 ? true : false"
+          :link="{
+            name: 'Bancos',
             icon: 'ni ni-credit-card text-danger',
             path: '/bancos'
           }">
         </sidebar-item> 
 
         <sidebar-item
+        v-if="oRol == 2 ? true : false"
           :link="{
-            name: 'Soporte U ',
+            name: 'Soporte',
             icon: 'ni ni-support-16 text-primary',
             path: '/soporte_usuario'
           }">
@@ -111,108 +131,24 @@
 
         
         <sidebar-item
+        v-if="oRol == 2 ? true : false"
           :link="{
-            name: 'Pagos U',
+            name: 'Pagos',
             icon: 'ni ni-money-coins text-default',
             path: '/pago_usuario'
           }">
         </sidebar-item> 
 
         <sidebar-item
+        v-if="oRol == 2 ? true : false"
           :link="{
-            name: 'Rubros U',
+            name: 'Rubros',
             icon: 'ni ni-tag text-warning',
             path: '/pago_rubro_usuario'
           }">
         </sidebar-item> 
 
 
-        
-
-
-        
-
-
-        <!--
-
-        <sidebar-item :link="{
-                  name: 'Examples',
-                  icon: 'ni ni-ungroup text-orange'
-                  }">
-          <sidebar-item :link="{ name: 'Pricing', path: '/pricing' }"/>
-          <sidebar-item :link="{ name: 'Login', path: '/login' }"/>
-          <sidebar-item :link="{ name: 'Register', path: '/register' }"/>
-          <sidebar-item :link="{ name: 'Lock', path: '/lock' }"/>
-          <sidebar-item :link="{ name: 'Timeline', path: '/pages/timeline' }"/>
-          <sidebar-item :link="{ name: 'Profile', path: '/pages/user' }"/>
-
-
-        </sidebar-item>
-
-        <sidebar-item :link="{
-                  name: 'Components',
-                  icon: 'ni ni-ui-04 text-info'
-                }">
-          <sidebar-item :link="{ name: 'Buttons', path: '/components/buttons' }"/>
-          <sidebar-item :link="{ name: 'Cards', path: '/components/cards' }"/>
-          <sidebar-item :link="{ name: 'Grid', path: '/components/grid-system' }"/>
-          <sidebar-item :link="{ name: 'Notifications', path: '/components/notifications' }"/>
-          <sidebar-item :link="{ name: 'Icons', path: '/components/icons' }"/>
-          <sidebar-item :link="{ name: 'Typography', path: '/components/typography' }"/>
-
-          <sidebar-item :link="{ name: 'Multi Level' }">
-            <sidebar-item :link="{ name: 'Third level menu', path:'#' }"/>
-            <sidebar-item :link="{ name: 'Just another link', path:'#' }"/>
-            <sidebar-item :link="{ name: 'One last link', path:'#' }"/>
-          </sidebar-item>
-        </sidebar-item>
-        <sidebar-item :link="{
-                        name: 'Forms',
-                        icon: 'ni ni-single-copy-04 text-pink'
-                      }">
-          <sidebar-item :link="{ name: 'Elements', path: '/forms/elements' }"/>
-          <sidebar-item :link="{ name: 'Components', path: '/forms/components' }"/>
-          <sidebar-item :link="{ name: 'Validation', path: '/forms/validation' }"/>
-        </sidebar-item>
-
-        <sidebar-item :link="{
-                        name: 'Tables',
-                        icon: 'ni ni-align-left-2 text-default'
-                      }">
-          <sidebar-item :link="{ name: 'Tables', path: '/tables/regular' }"/>
-          <sidebar-item :link="{ name: 'Sortable', path: '/tables/sortable' }"/>
-          <sidebar-item :link="{ name: 'Paginated Tables', path: '/tables/paginated' }"/>
-        </sidebar-item>
-
-        <sidebar-item :link="{
-                        name: 'Maps',
-                        icon: 'ni ni-map-big text-primary'
-                      }">
-          <sidebar-item :link="{ name: 'Google', path: '/maps/google' }"/>
-          <sidebar-item :link="{ name: 'Vector', path: '/maps/vector' }"/>
-        </sidebar-item>
-        <sidebar-item
-          :link="{
-            name: 'Widgets',
-            icon: 'ni ni-archive-2 text-green',
-            path: '/widgets'
-          }">
-        </sidebar-item>
-        <sidebar-item
-          :link="{
-            name: 'Charts',
-            icon: 'ni ni-chart-pie-35 text-info',
-            path: '/charts'
-          }">
-        </sidebar-item>
-
-        <sidebar-item
-          :link="{
-            name: 'Calendar',
-            icon: 'ni ni-calendar-grid-58 text-red',
-            path: '/calendar'
-          }">
-        </sidebar-item>-->
       </template>
 
 
@@ -228,6 +164,8 @@
   </div>
 </template>
 <script>
+ import jwt_decode from "jwt-decode";
+
   /* eslint-disable no-new */
   import PerfectScrollbar from 'perfect-scrollbar';
   import 'perfect-scrollbar/css/perfect-scrollbar.css';
@@ -257,6 +195,11 @@
       ContentFooter,
       DashboardContent
     },
+    data() {
+      return {
+        oRol:null
+      }
+    },
     methods: {
       initScrollbar() {
         let isWindows = navigator.platform.startsWith('Win');
@@ -269,6 +212,8 @@
     },
     mounted() {
       this.initScrollbar()
+      var token = this.$cookies.get("token_gipac")
+      this.oRol = jwt_decode(token).RolUsua
     }
   };
 </script>
