@@ -444,9 +444,7 @@ export default {
 };
 </script>
 <style>
-.form-group {
-  margin-bottom: 0rem;
-}
+
 
 .form-controlPersonal {
   display: block;

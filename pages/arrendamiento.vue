@@ -27,7 +27,7 @@
                 </el-option>
               </el-select>
 
-              <el-select
+              <!--<el-select
                 v-model="mSelectTipoDepartamentoBusqueda"
                 multiple
                 filterable
@@ -41,7 +41,7 @@
                   :value="item.dni_usuario"
                 >
                 </el-option>
-              </el-select>
+              </el-select>-->
             </div>
             <div class="div_derecha">
               <base-button

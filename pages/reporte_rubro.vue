@@ -24,6 +24,23 @@
             v-model="fechaFinal"
           >
           </el-date-picker>
+
+          <el-select
+                v-model="mSelectUsuario"
+                multiple
+                filterable
+                collapse-tags
+                placeholder="USUARIOS"
+              >
+                <el-option
+                  v-for="item in mListUsuario"
+                  :key="item.email_usuario"
+                  :label= "item.nombre_usuario"
+                  :value="item.email_usuario"
+                >
+                </el-option>
+              </el-select>
+
           </div>
 
           <div class="container_bsuqueda">
@@ -145,7 +162,9 @@ export default {
       mListaReporte1: [],
       nameUsuario: "",
       fechaInicial:null,
-      fechaFinal:null
+      fechaFinal:null,
+      mListUsuario:[],
+      mSelectUsuario:null
     };
   },
   methods: {
@@ -173,7 +192,8 @@ export default {
         var datos = await this.$axios.post(process.env.baseUrl + "/reporte_rubro", {
           token: this.token,
           fechaI:getFecha_dd_mm_yyyy(this.fechaInicial),
-          fechaF:getFecha_dd_mm_yyyy(this.fechaFinal)
+          fechaF:getFecha_dd_mm_yyyy(this.fechaFinal),
+          usuario: this.mSelectUsuario == null || this.mSelectUsuario.length <=0 ? "*" : this.mSelectUsuario
         });
 
         if (datos.data.status_code == 200) {
@@ -446,8 +466,51 @@ export default {
         format + " " + hora + ":" + minutes + ":00";
     },
 
+    async readAllUsuarios() {
+      this.mListUsuario = [];
+
+      try {
+        var data = JSON.stringify({
+          token: this.$cookies.get("token_gipac"),
+          rol: 2,
+        });
+
+        var config = {
+          method: "post",
+          maxBodyLength: Infinity,
+          url: process.env.baseUrl + "/all_user",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: data,
+        };
+
+        this.$axios
+          .request(config)
+          .then((response) => {
+            this.mListUsuario.push(...response.data.datos);
+          })
+          .catch((error) => {
+            this.$notify({
+              message: error.toString(),
+              timeout: 5000,
+              icon: "ni ni-fat-remove",
+              type: "danger",
+            });
+          });
+      } catch (error) {
+        this.$notify({
+          message: error.toString(),
+          timeout: 5000,
+          icon: "ni ni-fat-remove",
+          type: "danger",
+        });
+      }
+    },
+
   },
   mounted() {
+    this.readAllUsuarios()
     this.initFechaActualSalidaBusquedaPanel()
     var token = this.$cookies.get("token_gipac")
       this.nameUsuario = jwt_decode(token).NameUsua
@@ -455,9 +518,6 @@ export default {
 };
 </script>
 <style>
-.form-group {
-  margin-bottom: 0rem;
-}
 
 .form-controlPersonal {
   display: block;

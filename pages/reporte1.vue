@@ -5,7 +5,7 @@
         <card
           class="no-border-card col"
           style="margin-bottom: 0.5rem"
-          body-classes="px-0 pb-1 card-bodyTopOpcionesRPagosVehiculoPRoduccionPanelDespachoBusqueda cardSelectRubrosEstadosPagosVehiculoProduccionContainerPanelDespachoBusqueda"
+          body-classes="px-0 pb-1 card-bodyTopOpcionesR1 cardSelectRubrosEstadosPagosVehiculoProduccionContainerPanelDespachoBusqueda"
           footer-classes="pb-2"
         >
           <base-button icon type="primary" size="sm" @click="readReporte1()">
@@ -344,9 +344,6 @@ export default {
 };
 </script>
 <style>
-.form-group {
-  margin-bottom: 0rem;
-}
 
 .form-controlPersonal {
   display: block;
@@ -382,14 +379,14 @@ export default {
 
 .card-bodyRSalidasControles {
   padding: 0rem !important;
-  height: calc(100vh - 9.5rem);
+  height: calc(100vh - 9rem);
   overflow: none;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card-bodyTopOpcionesRPagosVehiculoPRoduccionPanelDespachoBusqueda {
+.card-bodyTopOpcionesR1 {
   padding-top: 0.25rem !important;
   display: flex;
   justify-content: flex-end;

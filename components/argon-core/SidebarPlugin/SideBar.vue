@@ -5,7 +5,7 @@
        :data="backgroundColor">
     <div class="scrollbar-inner" ref="sidebarScrollArea">
       <div class="sidenav-header d-flex align-items-center">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" >
           <img src="../../../static/img/brand/logo_login.png" class="navbar-brand-img" alt="Sidebar logo">
         </a>
         <div class="ml-auto">
