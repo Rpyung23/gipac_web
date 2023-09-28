@@ -101,6 +101,7 @@
   </div>
 </template>
 <script>
+import {getFechaImpresion} from "../util/fechas"
 import {getFecha_dd_mm_yyyy} from "../util/fechas"
 import flatPicker from "vue-flatpickr-component";
 import "flatpickr/dist/flatpickr.css";
@@ -432,6 +433,13 @@ export default {
                     alignment: "center",
                   },
                 ],
+                [
+                  {
+                    text: ("F. Impresión : "+getFechaImpresion()),
+                    fontSize: 7,
+                    alignment: "center",
+                  },
+                ]
               ],
             },
           },

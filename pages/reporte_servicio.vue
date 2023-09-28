@@ -107,6 +107,7 @@ import {
   Button,
   Loading,
 } from "element-ui";
+import {getFechaImpresion} from "../util/fechas"
 import jwt_decode from "jwt-decode";
 import RouteBreadCrumb from "@/components/argon-core/Breadcrumb/RouteBreadcrumb";
 import { BasePagination } from "@/components/argon-core";
@@ -368,6 +369,13 @@ export default {
                     alignment: "center",
                   },
                 ],
+                [
+                  {
+                    text: ("F. Impresión : "+getFechaImpresion()),
+                    fontSize: 7,
+                    alignment: "center",
+                  },
+                ]
               ],
             },
           },

@@ -213,3 +213,31 @@ export function convertSecondtoTimeString(seconds) {
 }
 
 
+export function getFechaImpresion() 
+{
+    const today = new Date();
+    const fecha = new Date(today);
+    fecha.setDate(fecha.getDate());
+    var mes = fecha.getMonth() + 1;
+    var day = fecha.getDate();
+    var hora = fecha.getHours();
+    var minuto = fecha.getMinutes();
+    var segundo = fecha.getSeconds();
+    var format =
+      fecha.getFullYear() +
+      "-" +
+      (mes < 10 ? "0" + mes : mes) +
+      "-" +
+      (day < 10 ? "0" + day : day);
+
+    var formatHora =
+      (hora < 10 ? "0" + hora : hora) +
+      ":" +
+      (minuto < 10 ? "0" + minuto : minuto) +
+      ":" +
+      (segundo < 10 ? "0" + segundo : segundo);
+
+    return format + " " + formatHora;  
+}
+
+

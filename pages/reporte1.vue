@@ -94,6 +94,7 @@ import swal from "sweetalert2";
 import Tabs from "@/components/argon-core/Tabs/Tabs";
 import TabPane from "@/components/argon-core/Tabs/Tab";
 import { getBase64LogoReportes } from "../util/logoReport";
+import {getFechaImpresion} from "../util/fechas"
 export default {
   mixins: [clientPaginationMixin],
   layout: "DashboardLayout",
@@ -320,6 +321,12 @@ export default {
                   {
                     text: this.nameUsuario,
                     fontSize: 8.5,
+                    alignment: "center",
+                  },
+                ],[
+                  {
+                    text: ("F. Impresión : "+getFechaImpresion()),
+                    fontSize: 7,
                     alignment: "center",
                   },
                 ],
