@@ -10,6 +10,24 @@
     >
     <!-- Navbar links -->
 
+    <ul class="navbar-nav align-items-center ml-md-auto">
+      <li class="nav-item d-xl-none">
+        <!-- Sidenav toggler -->
+        <div class="pr-3 sidenav-toggler" :class="{
+          active: $sidebar.showSidebar,
+          'sidenav-toggler-dark': type === 'default',
+          'sidenav-toggler-light': type === 'light',
+        }" @click="toggleSidebar">
+          <div class="sidenav-toggler-inner">
+            <i class="sidenav-toggler-line"></i>
+            <i class="sidenav-toggler-line"></i>
+            <i class="sidenav-toggler-line"></i>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
     <ul class="navbar-nav align-items-center ml-auto ml-md-0">
       <base-dropdown
         menu-on-right

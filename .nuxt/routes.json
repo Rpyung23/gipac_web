@@ -3,147 +3,126 @@
     "name": "arrendamiento",
     "path": "/arrendamiento",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\arrendamiento.vue",
-    "chunkName": "pages/arrendamiento",
-    "_name": "_58b04a58"
+    "chunkName": "pages/arrendamiento"
   },
   {
     "name": "bancos",
     "path": "/bancos",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\bancos.vue",
-    "chunkName": "pages/bancos",
-    "_name": "_5cef78ca"
+    "chunkName": "pages/bancos"
   },
   {
     "name": "dashboard",
     "path": "/dashboard",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\dashboard.vue",
-    "chunkName": "pages/dashboard",
-    "_name": "_66256161"
+    "chunkName": "pages/dashboard"
   },
   {
     "name": "dashboard_usuario",
     "path": "/dashboard_usuario",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\dashboard_usuario.vue",
-    "chunkName": "pages/dashboard_usuario",
-    "_name": "_712a92d0"
+    "chunkName": "pages/dashboard_usuario"
   },
   {
     "name": "departamento",
     "path": "/departamento",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\departamento.vue",
-    "chunkName": "pages/departamento",
-    "_name": "_30146647"
+    "chunkName": "pages/departamento"
   },
   {
     "name": "lock",
     "path": "/lock",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\lock.vue",
-    "chunkName": "pages/lock",
-    "_name": "_3888eeee"
+    "chunkName": "pages/lock"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\login.vue",
-    "chunkName": "pages/login",
-    "_name": "_a7ad5394"
+    "chunkName": "pages/login"
   },
   {
     "name": "pago_admin",
     "path": "/pago_admin",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\pago_admin.vue",
-    "chunkName": "pages/pago_admin",
-    "_name": "_255e7ea8"
+    "chunkName": "pages/pago_admin"
   },
   {
     "name": "pago_rubro",
     "path": "/pago_rubro",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\pago_rubro.vue",
-    "chunkName": "pages/pago_rubro",
-    "_name": "_755543d9"
+    "chunkName": "pages/pago_rubro"
   },
   {
     "name": "pago_rubro_usuario",
     "path": "/pago_rubro_usuario",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\pago_rubro_usuario.vue",
-    "chunkName": "pages/pago_rubro_usuario",
-    "_name": "_69270570"
+    "chunkName": "pages/pago_rubro_usuario"
   },
   {
     "name": "pago_usuario",
     "path": "/pago_usuario",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\pago_usuario.vue",
-    "chunkName": "pages/pago_usuario",
-    "_name": "_692d2bcb"
+    "chunkName": "pages/pago_usuario"
   },
   {
     "name": "reporte_rubro",
     "path": "/reporte_rubro",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\reporte_rubro.vue",
-    "chunkName": "pages/reporte_rubro",
-    "_name": "_3c75a83b"
+    "chunkName": "pages/reporte_rubro"
   },
   {
     "name": "reporte_servicio",
     "path": "/reporte_servicio",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\reporte_servicio.vue",
-    "chunkName": "pages/reporte_servicio",
-    "_name": "_7cbbe467"
+    "chunkName": "pages/reporte_servicio"
   },
   {
     "name": "reporte1",
     "path": "/reporte1",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\reporte1.vue",
-    "chunkName": "pages/reporte1",
-    "_name": "_0172fe63"
+    "chunkName": "pages/reporte1"
   },
   {
     "name": "reporte2",
     "path": "/reporte2",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\reporte2.vue",
-    "chunkName": "pages/reporte2",
-    "_name": "_018115e4"
+    "chunkName": "pages/reporte2"
   },
   {
     "name": "servicio_admin",
     "path": "/servicio_admin",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\servicio_admin.vue",
-    "chunkName": "pages/servicio_admin",
-    "_name": "_03b34dae"
+    "chunkName": "pages/servicio_admin"
   },
   {
     "name": "servicio_usuario",
     "path": "/servicio_usuario",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\servicio_usuario.vue",
-    "chunkName": "pages/servicio_usuario",
-    "_name": "_ca02cdf0"
+    "chunkName": "pages/servicio_usuario"
   },
   {
     "name": "soporte_admin",
     "path": "/soporte_admin",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\soporte_admin.vue",
-    "chunkName": "pages/soporte_admin",
-    "_name": "_5664a476"
+    "chunkName": "pages/soporte_admin"
   },
   {
     "name": "soporte_usuario",
     "path": "/soporte_usuario",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\soporte_usuario.vue",
-    "chunkName": "pages/soporte_usuario",
-    "_name": "_652336a4"
+    "chunkName": "pages/soporte_usuario"
   },
   {
     "name": "usuario",
     "path": "/usuario",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\usuario.vue",
-    "chunkName": "pages/usuario",
-    "_name": "_68d5963b"
+    "chunkName": "pages/usuario"
   },
   {
     "name": "index",
     "path": "/",
     "component": "V:\\\\TRABAJOS PERSONALEs\\\\WEB\\\\gipac_web\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_3afc99c2"
+    "chunkName": "pages/index"
   }
 ]
